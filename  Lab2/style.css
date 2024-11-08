@@ -1,0 +1,64 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: #eaeef3;
+    font-family: Arial, sans-serif;
+}
+
+/* Main button styling */
+.svg-button-alt {
+    padding: 12px 24px;
+    border: 2px solid #b5a3ff; /* violet border */
+    background-color: #ffffff; /* White background */
+    color: #b5a3ff; /* violet text */
+    font-size: 18px;
+    cursor: pointer;
+    outline: none;
+    display: flex;
+    align-items: center;
+    gap: 17px; /* Space between icon and text */
+    transition: all 0.2s ease;
+    border-radius: 20px; /* Rounded corners */
+    overflow: hidden; /* Ensures gradient stays within button bounds */
+    position: relative; /* Required for pseudo-element positioning */
+}
+
+/* Pseudo-element for hover gradient effect */
+.svg-button-alt::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: linear-gradient(135deg, transparent, transparent 50%, white 50%);
+    transition: all 0.3s ease;
+    z-index: 0;
+    opacity: 0; /* Initially hidden */
+}
+
+/* SVG icon styling */
+.svg-button-alt svg {
+    transition: transform 0.3s ease;
+    z-index: 1; /* Keeps icon above the gradient */
+}
+
+/* Hover effects for button */
+.svg-button-alt:hover {
+    border-color: transparent; /* Hides border on hover */
+    color: white; /* Changes text color to white */
+    background-color: #b5a3ff; /* violet background */
+    transform: scale(1.05); /* Slight zoom effect */
+}
+
+/* Shows gradient effect on hover */
+.svg-button-alt:hover::before {
+    opacity: 1;
+    background: linear-gradient(135deg, transparent, #b5a3ff 50%, white 50%);
+}
+
+/* Rotates icon on hover */
+.svg-button-alt:hover svg {
+    transform: rotate(360deg); /* 360-degree rotation */
+}
